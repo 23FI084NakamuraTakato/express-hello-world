@@ -11,12 +11,18 @@
         height: 100vh;
       }
       .messages {
-        background-color: #d4f7d4;
         flex: 1;
         overflow-y: auto;
         list-style: none;
         padding: 0;
         margin: 0;
+      }
+      .message {
+        background-color: #00b900;
+        padding: 8px 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        max-width: 80%;
       }
       .form {
         display: flex;
@@ -68,6 +74,7 @@
           const { id, text, time } = JSON.parse(msg.data)
           const messageList = document.querySelector('.messages')
           const li = document.createElement('li')
+          li.className = 'message'  //追加
           //li.textContent = response
           if (id === myId) {
             li.textContent = `[${time}]` + `(${id})自分:` + text
